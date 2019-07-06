@@ -131,7 +131,7 @@ public class Vehicles {
 				+ "| ENGINE SIZE | TRANSMISSION | MILEAGE | # OF SEATS | RENTAL STATUS | RATE PER DAY |");
 		
 		while(true) {
-			System.out.println("|"+ licensePlateNumber + "|" );
+			System.out.println("|"+ licensePlateNumber + "|");
 		}
 		
 	}
