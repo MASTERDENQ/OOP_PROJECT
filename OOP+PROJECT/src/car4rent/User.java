@@ -3,8 +3,7 @@ package car4rent;
 public class User {
 	
 //States/ Attributes
-//	private String username;
-//	private String password;
+	private String username;
 	private String fullName;
 	private String homeAddress;
 	private String phoneNumber;
@@ -12,8 +11,7 @@ public class User {
 	//Primary Constructor
 	public User(String username, String password, String fullName, String homeAddress, String phoneNumber) {
 	
-		//this.username = username;
-		//this.password = password;
+		this.username = username;
 		this.fullName = fullName;
 		this.homeAddress = homeAddress;
 		this.phoneNumber = phoneNumber;
@@ -22,25 +20,21 @@ public class User {
 	//Default Constructors
 	public User() {
 		
-		//this.username = "admin";
-		//this.password = "onehundred";
+		this.username = "admin";
 		this.fullName = "Admin";
 		this.homeAddress = "kingston city";
 		this.phoneNumber = "1(876) 987-6543";
 	}
 	
-	//Getters and Setters
-	/*
-	 * public String getUsername() { return username; }
-	 */
-	/*
-	 * public void setUsername(String username) { this.username = username; }
-	 * 
-	 * public String getPassword() { return password; }
-	 * 
-	 * public void setPassword(String password) { this.password = password; }
-	 */
-
+//Getters and Setters
+    public String getUsername() {
+    	return username; 
+    }
+	 
+	public void setUsername(String username) { 
+		this.username = username; 
+		}
+	 
 	public String getFullName() {
 		return fullName;
 	}
@@ -64,5 +58,4 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
 }// end of User class

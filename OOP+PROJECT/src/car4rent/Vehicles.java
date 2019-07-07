@@ -32,6 +32,46 @@ public class Vehicles {
 		this.ratePerDay = ratePerDay;
 		this.rentalStatus = rentalStatus;
 	}
+	
+	//Default Constructor
+	public Vehicles() {
+		
+		this.licensePlateNumber = "3423 AW";
+		this.brand = "Toyota";
+		this.model = "E203";
+		this.year = 2019;
+		this.color = "RED";
+		this.engineSize = "320";
+		this.transmission = 'A';
+		this.mileage = 23000;
+		this.numberOfSeat = 5;
+		this.ratePerDay = 5000;
+		this.rentalStatus = "Available";
+	}
+	
+//Utilities	
+	public void viewVehicle() {
+		
+		System.out.println("| LICENCE NUMBER | BRAND | MODEL | YEAR | COLOR  "
+				+ "| ENGINE SIZE | TRANSMISSION | MILEAGE | # OF SEATS | RENTAL STATUS | RATE PER DAY |");
+		
+		while(true) {
+			System.out.println("|"+ licensePlateNumber + "|");
+		}
+			
+	}
+		
+	public void searchVehicle() {
+		
+	}
+	
+	public void displayVehicles() {
+		
+	}
+	
+	public void returnVehicles() {
+		
+	}
 
 //Getters and Setters
 	public String getLicensePlateNumber() {
@@ -120,23 +160,5 @@ public class Vehicles {
 
 	public void setRentalStatus(String rentalStatus) {
 		this.rentalStatus = rentalStatus;
-	}
-	
-//Utilities	
-	public void viewVehicle() {
-		
-		System.out.println("*************************************************"
-				+ "************************************************************************************");
-		System.out.println("| LICENCE NUMBER | BRAND | MODEL | YEAR | COLOR  "
-				+ "| ENGINE SIZE | TRANSMISSION | MILEAGE | # OF SEATS | RENTAL STATUS | RATE PER DAY |");
-		
-		while(true) {
-			System.out.println("|"+ licensePlateNumber + "|");
-		}
-		
-	}
-	
-	public void searchVehicle() {
-		
 	}
 }// end of Vehicles class
