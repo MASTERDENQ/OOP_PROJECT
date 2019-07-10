@@ -7,10 +7,6 @@ public class Car4Rent_Main {
 		Vehicles ford1 = new Vehicles("r","a", "t", 1, "a", "t", 'A', 4.23, 1, 4.33, "u");
 		Date today = new Date(11, 11, 2019);
 		User dkfd = new User();
-		//just testing this out
-		User tia = new User();
-		
-		
 
 	}
 
