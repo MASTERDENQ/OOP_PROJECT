@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Car4Rent_Main {
 
-	public static void main(String[] args) {
+	public void start() {
 		
 		//Creating the Frame
         JFrame frame = new JFrame("Chat Frame");
