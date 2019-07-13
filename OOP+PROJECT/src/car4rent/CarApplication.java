@@ -67,6 +67,7 @@ public class CarApplication {
 			public void actionPerformed(ActionEvent e) {
 				Car4Rent_Main car = new Car4Rent_Main();
 				car.start();
+				frame.dispose();
 			}
 		});
 		btnSignIn.setBounds(10, 128, 298, 328);
@@ -78,6 +79,7 @@ public class CarApplication {
 			public void actionPerformed(ActionEvent e) {
 				User2 user = new User2();
 				user.start();
+				frame.dispose();
 								
 			}
 		});
