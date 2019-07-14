@@ -1,17 +1,20 @@
 package car4rent;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JSeparator;
-import javax.swing.JLabel;
+
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextField;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class User2 extends JFrame {
 
@@ -19,6 +22,12 @@ public class User2 extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
+//States/ Attributes
+	private String username;
+	private String fullName;
+	private String homeAddress;
+	private String phoneNumber;
 
 	/**
 	 * Launch the application.
@@ -100,5 +109,25 @@ public class User2 extends JFrame {
 		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnEnter.setBounds(337, 337, 133, 37);
 		contentPane.add(btnEnter);
+	}
+	
+	/**
+	 * Save new user to userFile.txt.
+	 */
+	
+	public void saveNewUser() {
+		try {
+			FileWriter fileObj = new FileWriter("userFile.txt", true);
+			
+			fileObj.write(username + "");
+			fileObj.write(fullName + "");
+			fileObj.write(homeAddress + "");
+			fileObj.write(phoneNumber + "");
+			fileObj.write("\n");
+			fileObj.close();
+		}
+		catch(IOException e) {
+			
+		}
 	}
 }
