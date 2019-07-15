@@ -1,48 +1,98 @@
 package car4rent;
 
-import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JSeparator;
+import java.awt.Font;
+import javax.swing.JPanel;
 
 public class Car4Rent_Main {
 
-	public void start() {
-		
-		//Creating the Frame
-        JFrame frame = new JFrame("Chat Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        
-        //Creating the MenuBar and adding components
-        JMenuBar menuBar = new JMenuBar();
-        JMenu Home = new JMenu("HOME");
-        JMenu ViewVehicle = new JMenu("View Vehicles");
-        menuBar.add(Home);
-        menuBar.add(ViewVehicle);
-        JMenuItem open = new JMenuItem("Open");
-        JMenuItem save = new JMenuItem("Save");
-        Home.add(open);
-        Home.add(save);
-        
-        //Creating the panel at bottom and adding components
-        JPanel panel = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Enter ");
-        JButton enter = new JButton("ENTER");
-        JButton reset = new JButton("RESET");
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(enter);
-        panel.add(reset);
-        
-        // Text Area at the Center
-        JTextArea textArea = new JTextArea();
+	private JFrame frame;
 
-        //Adding Components to the frame.
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.NORTH, menuBar);
-        frame.getContentPane().add(BorderLayout.CENTER, textArea);
-        frame.setVisible(true);
-
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Car4Rent_Main window = new Car4Rent_Main();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
+	/**
+	 * Create the application.
+	 */
+	public Car4Rent_Main() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 660, 506);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblWelcomeToCarrent = new JLabel("WELCOME TO CAR-4-RENT");
+		lblWelcomeToCarrent.setFont(new Font("Tahoma", Font.PLAIN, 48));
+		lblWelcomeToCarrent.setBackground(Color.YELLOW);
+		lblWelcomeToCarrent.setForeground(Color.BLUE);
+		lblWelcomeToCarrent.setBounds(25, 11, 599, 64);
+		frame.getContentPane().add(lblWelcomeToCarrent);
+		
+		JButton btnSignIn = new JButton("SIGN IN");
+		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 38));
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				User user = new User();
+				user.start();
+				frame.dispose();
+			}
+		});
+		btnSignIn.setBounds(10, 128, 298, 328);
+		frame.getContentPane().add(btnSignIn);
+		
+		JButton btnSignUp = new JButton("SIGN UP");
+		btnSignUp.setFont(new Font("Tahoma", Font.PLAIN, 38));
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				User user = new User();
+				user.start();
+				frame.dispose();
+								
+			}
+		});
+		btnSignUp.setBounds(318, 128, 316, 328);
+		frame.getContentPane().add(btnSignUp);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 86, 624, 2);
+		frame.getContentPane().add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(296, 118, 328, -17);
+		frame.getContentPane().add(separator_1);
+	}
 }
+
