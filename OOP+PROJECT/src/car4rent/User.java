@@ -16,22 +16,23 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class User extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField fullNameTextField;
-	private JTextField addressTextField;
-	
-//States/ Attributes
+	//States/ Attributes
 	private String username;
 	private String fullName;
 	private String homeAddress;
 	private String phoneNumber;
+		
+	private JPanel contentPane;
 	private JTextField usernameTextField;
+	private JTextField fullNameTextField;
+	private JTextField addressTextField;
 	private JTextField phoneTextField;
 
 	/**
-	 * Launch the application.
+	 * Launch this application window.
 	 */
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,6 +51,7 @@ public class User extends JFrame {
 	 * Create the frame.
 	 */
 	public User() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 712, 472);
 		contentPane = new JPanel();
