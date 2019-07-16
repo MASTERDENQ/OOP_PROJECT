@@ -18,43 +18,74 @@ public class Cars extends Vehicles {
 				ratePerDay, rentalStatus);
 		this.covertible = covertible;
 	}
+	
+	public void searchVehicleFile(String key){
 
-	public void readInCars() throws IOException {
-		
-		File f = new File("Vehiles.txt");
-		
+		File f = new File("UserFile.txt");
+
 		Scanner scan = new Scanner(f);
 		
-		String[] words=null;  //Intialize the word Array
-	    FileReader fr = new FileReader(f);  //Creation of File Reader object
-	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
-	      
-	    String line;     
-	    String input="Car";   // Input word to be searched
-	      
-	    while((line = br.readLine()) != null)   //Reading Content from the file
-	    {
-	       words = line.split(" ");  //Split the word using space
-	       
-	       for (String word : words) 
-	       {
-	    	   if (word.equals(input))   //Search for the given word
-	           {
-		    		licensePlateNumber = scan.next();
-		   			brand = scan.next();
-		   			model = scan.next();
-		   			year = scan.nextInt();
-		   			color = scan.next();
-		   			engineSize = scan.next();
-		   			transmission = (char) scan.nextInt();
-		   			mileage = scan.nextDouble();
-		   			numberOfSeat = scan.nextInt();
-		   			ratePerDay = scan.nextDouble();
-		   			covertible = scan.nextBoolean();
-		   			rentalStatus = scan.next();    
-	           }
-	       }
-	      }
+		String input = key;
+
+		BufferReader br = new BufferReader(f);
+
+		while(true == br.contains(input) && scan.hasNext()){
+
+			licensePlateNumber = scan.next();
+			brand = scan.next();
+			model = scan.next();
+			year = scan.nextInt();
+			color = scan.next();
+			engineSize = scan.next();
+			transmission = (char) scan.nextInt();
+			mileage = scan.nextDouble();
+			numberOfSeat = scan.nextInt();
+			ratePerDay = scan.nextDouble();
+			covertible = scan.nextBoolean();
+			rentalStatus = scan.next();  
+
+
+		}
+	}
+
+//	public void readInCars() throws IOException {
+//		
+//		File f = new File("Vehiles.txt");
+//		
+//		Scanner scan = new Scanner(f);
+//		
+		
+		
+//		String[] words=null;  //Intialize the word Array
+//	    FileReader fr = new FileReader(f);  //Creation of File Reader object
+//	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
+//	      
+//	    String line;     
+//	    String input="Car";   // Input word to be searched
+//	      
+//	    while((line = br.readLine()) != null)   //Reading Content from the file
+//	    {
+//	       words = line.split(" ");  //Split the word using space
+//	       
+//	       for (String word : words) 
+//	       {
+//	    	   if (word.equals(input))   //Search for the given word
+//	           {
+//		    		licensePlateNumber = scan.next();
+//		   			brand = scan.next();
+//		   			model = scan.next();
+//		   			year = scan.nextInt();
+//		   			color = scan.next();
+//		   			engineSize = scan.next();
+//		   			transmission = (char) scan.nextInt();
+//		   			mileage = scan.nextDouble();
+//		   			numberOfSeat = scan.nextInt();
+//		   			ratePerDay = scan.nextDouble();
+//		   			covertible = scan.nextBoolean();
+//		   			rentalStatus = scan.next();    
+//	           }
+//	       }
+//	      }
 		
 //		while(scan.hasNext()) {
 //		
@@ -71,7 +102,7 @@ public class Cars extends Vehicles {
 //			covertible = scan.nextBoolean();
 //			rentalStatus = scan.next();
 //		}// end while
-//		scan.close();		
+		scan.close();		
 	}
 	
 	
