@@ -29,37 +29,49 @@ public class Cars extends Vehicles {
 	    FileReader fr = new FileReader(f);  //Creation of File Reader object
 	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
 	      
-	    String s;     
+	    String line;     
 	    String input="Car";   // Input word to be searched
 	      
-	    while((s=br.readLine())!=null)   //Reading Content from the file
+	    while((line = br.readLine()) != null)   //Reading Content from the file
 	    {
-	       words=s.split(" ");  //Split the word using space
+	       words = line.split(" ");  //Split the word using space
+	       
 	       for (String word : words) 
 	       {
 	    	   if (word.equals(input))   //Search for the given word
 	           {
-	                  
+		    		licensePlateNumber = scan.next();
+		   			brand = scan.next();
+		   			model = scan.next();
+		   			year = scan.nextInt();
+		   			color = scan.next();
+		   			engineSize = scan.next();
+		   			transmission = (char) scan.nextInt();
+		   			mileage = scan.nextDouble();
+		   			numberOfSeat = scan.nextInt();
+		   			ratePerDay = scan.nextDouble();
+		   			covertible = scan.nextBoolean();
+		   			rentalStatus = scan.next();    
 	           }
 	       }
 	      }
 		
-		while(scan.hasNext()) {
-		
-			licensePlateNumber = scan.next();
-			brand = scan.next();
-			model = scan.next();
-			year = scan.nextInt();
-			color = scan.next();
-			engineSize = scan.next();
-			transmission = (char) scan.nextInt();
-			mileage = scan.nextDouble();
-			numberOfSeat = scan.nextInt();
-			ratePerDay = scan.nextDouble();
-			covertible = scan.nextBoolean();
-			rentalStatus = scan.next();
-		}// end while
-		scan.close();		
+//		while(scan.hasNext()) {
+//		
+//			licensePlateNumber = scan.next();
+//			brand = scan.next();
+//			model = scan.next();
+//			year = scan.nextInt();
+//			color = scan.next();
+//			engineSize = scan.next();
+//			transmission = (char) scan.nextInt();
+//			mileage = scan.nextDouble();
+//			numberOfSeat = scan.nextInt();
+//			ratePerDay = scan.nextDouble();
+//			covertible = scan.nextBoolean();
+//			rentalStatus = scan.next();
+//		}// end while
+//		scan.close();		
 	}
 	
 	

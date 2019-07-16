@@ -38,7 +38,7 @@ public class Car4Rent_Main {
 		});
 	}
 
-	/**s
+	/**
 	 * Create the application.
 	 */
 	public Car4Rent_Main() {
@@ -50,6 +50,7 @@ public class Car4Rent_Main {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(100, 100, 660, 506);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -62,7 +63,7 @@ public class Car4Rent_Main {
 		frame.getContentPane().add(lblWelcomeToCarrent);
 		
 		JButton btnSignIn = new JButton("SIGN IN");
-		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 38));
+		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User user = new User();
@@ -74,7 +75,7 @@ public class Car4Rent_Main {
 		frame.getContentPane().add(btnSignIn);
 		
 		JButton btnSignUp = new JButton("SIGN UP");
-		btnSignUp.setFont(new Font("Tahoma", Font.PLAIN, 38));
+		btnSignUp.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User user = new User();
