@@ -30,6 +30,7 @@ public class User extends JFrame {
 	private JTextField fullNameTextField;
 	private JTextField addressTextField;
 	private JTextField phoneTextField;
+	private JTextField txtTodaysDate;
 
 	/**
 	 * Launch this application window.
@@ -63,12 +64,12 @@ public class User extends JFrame {
 		separator.setBounds(40, 81, 624, 2);
 		contentPane.add(separator);
 		
-		JLabel label = new JLabel("WELCOME TO CAR-4-RENT");
-		label.setForeground(Color.BLUE);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 52));
-		label.setBackground(Color.YELLOW);
-		label.setBounds(12, 11, 637, 64);
-		contentPane.add(label);
+		JLabel lblCarrent = new JLabel("CAR-4-RENT");
+		lblCarrent.setForeground(Color.BLUE);
+		lblCarrent.setFont(new Font("Tahoma", Font.PLAIN, 52));
+		lblCarrent.setBackground(Color.YELLOW);
+		lblCarrent.setBounds(192, 13, 291, 63);
+		contentPane.add(lblCarrent);
 		
 		JLabel lblUsername = new JLabel("USERNAME");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -128,8 +129,11 @@ public class User extends JFrame {
 				phoneNumber = phoneTextField.getText();
 				
 				saveNewUser();
-				dispose();
 				
+				Vehicle buy = new Vehicle();
+				buy.start();
+				
+				dispose();
 			}
 		});
 		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -139,6 +143,17 @@ public class User extends JFrame {
 		JLabel notice = new JLabel("PLEASE REPLACE ALL SPACE WITH AN UNDERSCORE \"_\".");
 		notice.setBounds(12, 396, 397, 16);
 		contentPane.add(notice);
+		
+		txtTodaysDate = new JTextField();
+		txtTodaysDate.setText("TODAY'S DATE");
+		txtTodaysDate.setBounds(566, 46, 116, 22);
+		contentPane.add(txtTodaysDate);
+		txtTodaysDate.setColumns(10);
+		
+		JLabel lblDatetime = new JLabel("DATE");
+		lblDatetime.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDatetime.setBounds(602, 13, 50, 36);
+		contentPane.add(lblDatetime);
 	}
 	
 	/**

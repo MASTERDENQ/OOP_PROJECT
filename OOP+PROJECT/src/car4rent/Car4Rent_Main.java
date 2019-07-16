@@ -38,7 +38,7 @@ public class Car4Rent_Main {
 		});
 	}
 
-	/**
+	/**s
 	 * Create the application.
 	 */
 	public Car4Rent_Main() {
@@ -93,6 +93,10 @@ public class Car4Rent_Main {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(296, 118, 328, -17);
 		frame.getContentPane().add(separator_1);
+		
+		JLabel lblTheBestVehicle = new JLabel("THE BEST VEHICLE RENTAL COMPANY IN KINGSTON JAMACIA");
+		lblTheBestVehicle.setBounds(126, 89, 362, 16);
+		frame.getContentPane().add(lblTheBestVehicle);
 	}
 	
 	/**
