@@ -1,7 +1,10 @@
 package car4rent;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Cars extends Vehicles {
@@ -16,13 +19,33 @@ public class Cars extends Vehicles {
 		this.covertible = covertible;
 	}
 
-	public void readInCars() throws FileNotFoundException {
+	public void readInCars() throws IOException {
 		
 		File f = new File("Vehiles.txt");
 		
 		Scanner scan = new Scanner(f);
 		
+		String[] words=null;  //Intialize the word Array
+	    FileReader fr = new FileReader(f);  //Creation of File Reader object
+	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
+	      
+	    String s;     
+	    String input="Car";   // Input word to be searched
+	      
+	    while((s=br.readLine())!=null)   //Reading Content from the file
+	    {
+	       words=s.split(" ");  //Split the word using space
+	       for (String word : words) 
+	       {
+	    	   if (word.equals(input))   //Search for the given word
+	           {
+	                  
+	           }
+	       }
+	      }
+		
 		while(scan.hasNext()) {
+		
 			licensePlateNumber = scan.next();
 			brand = scan.next();
 			model = scan.next();
