@@ -95,6 +95,9 @@ public class Car4Rent_Main {
 		frame.getContentPane().add(separator_1);
 	}
 	
+	/**
+	 * Search function.
+	 */
 	public static int search(int[] arr, int key) {
 		
 		for(int i = 0; i <arr.length; i++) {
