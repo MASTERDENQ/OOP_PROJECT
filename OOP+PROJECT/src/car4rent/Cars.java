@@ -19,34 +19,48 @@ public class Cars extends Vehicles {
 		this.covertible = covertible;
 	}
 	
-	public void searchVehicleFile(String key){
-
-		File f = new File("UserFile.txt");
-
-		Scanner scan = new Scanner(f);
+	public static Scanner x;
+	
+	public static void readRecord(String term, String filepath) {
 		
-		String input = key;
-
-		BufferReader br = new BufferReader(f);
-
-		while(true == br.contains(input) && scan.hasNext()){
-
-			licensePlateNumber = scan.next();
-			brand = scan.next();
-			model = scan.next();
-			year = scan.nextInt();
-			color = scan.next();
-			engineSize = scan.next();
-			transmission = (char) scan.nextInt();
-			mileage = scan.nextDouble();
-			numberOfSeat = scan.nextInt();
-			ratePerDay = scan.nextDouble();
-			covertible = scan.nextBoolean();
-			rentalStatus = scan.next();  
-
-
+		boolean found = false;
+		
+		while(x.hasNext() && !found) {
+			
+			
 		}
 	}
+	
+	
+	
+//	public void searchVehicleFile(String key){
+//
+//		File f = new File("UserFile.txt");
+//
+//		Scanner scan = new Scanner(f);
+//		
+//		String input = key;
+//
+//		//BufferReader br = new BufferReader(f);
+//
+//		//while(true == br.contains(input) && scan.hasNext()){
+//
+//			licensePlateNumber = scan.next();
+//			brand = scan.next();
+//			model = scan.next();
+//			year = scan.nextInt();
+//			color = scan.next();
+//			engineSize = scan.next();
+//			transmission = (char) scan.nextInt();
+//			mileage = scan.nextDouble();
+//			numberOfSeat = scan.nextInt();
+//			ratePerDay = scan.nextDouble();
+//			covertible = scan.nextBoolean();
+//			rentalStatus = scan.next();  
+//
+//
+//		}
+//	}
 
 //	public void readInCars() throws IOException {
 //		
@@ -102,9 +116,9 @@ public class Cars extends Vehicles {
 //			covertible = scan.nextBoolean();
 //			rentalStatus = scan.next();
 //		}// end while
-		scan.close();		
-	}
-	
+//		scan.close();		
+//	}
+//	
 	
 	
 	

@@ -15,6 +15,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vehicle extends JFrame {
 
@@ -57,11 +59,20 @@ public class Vehicle extends JFrame {
 		contentPane.add(lblCarrent);
 		
 		JButton btnAll = new JButton("ALL");
+		btnAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnAll.setFont(new Font("Tahoma", Font.BOLD, 29));
 		btnAll.setBounds(12, 134, 684, 85);
 		contentPane.add(btnAll);
 		
 		JButton btnCars = new JButton("CARS");
+		btnCars.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cars frame = new Cars();
+			}
+		});
 		btnCars.setFont(new Font("Tahoma", Font.BOLD, 29));
 		btnCars.setBounds(12, 216, 684, 85);
 		contentPane.add(btnCars);
