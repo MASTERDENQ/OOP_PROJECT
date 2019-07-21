@@ -36,7 +36,7 @@ public class Car4Rent_Main {
 				}
 			}
 		});
-	}//wtgrehftjtukuy
+	}
 
 	/**
 	 * Create the application.
