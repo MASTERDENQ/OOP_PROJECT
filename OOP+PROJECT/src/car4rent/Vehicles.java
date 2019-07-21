@@ -41,7 +41,7 @@ public class Vehicles {
 		this.model = "E203";
 		this.year = 2019;
 		this.color = "RED";
-		this.engineSize = "320";
+		this.engineSize = "310";
 		this.transmission = 'A';
 		this.mileage = 23000;
 		this.numberOfSeat = 5;
