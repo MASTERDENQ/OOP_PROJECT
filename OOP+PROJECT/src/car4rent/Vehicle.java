@@ -70,7 +70,7 @@ public class Vehicle extends JFrame {
 		JButton btnCars = new JButton("CARS");
 		btnCars.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cars frame = new Cars();
+				
 			}
 		});
 		btnCars.setFont(new Font("Tahoma", Font.BOLD, 29));
