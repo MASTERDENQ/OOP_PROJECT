@@ -58,11 +58,6 @@ public class Vehicle extends JFrame {
 		lblCarrent.setBounds(205, 13, 300, 67);
 		contentPane.add(lblCarrent);
 		
-		JLabel lblSelectHowTo = new JLabel("SELECT HOW TO VIEW VEHICLES");
-		lblSelectHowTo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSelectHowTo.setBounds(47, 101, 245, 20);
-		contentPane.add(lblSelectHowTo);
-		
 
 		textField = new JTextField();
 		textField.setText("TODAY'S DATE");
