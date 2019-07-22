@@ -96,7 +96,7 @@ public class Car4Rent_Main {
 		frame.getContentPane().add(separator_1);
 		
 		JLabel lblTheBestVehicle = new JLabel("THE BEST VEHICLE RENTAL COMPANY IN KINGSTON JAMACIA");
-		lblTheBestVehicle.setBounds(126, 89, 362, 16);
+		lblTheBestVehicle.setBounds(172, 91, 362, 16);
 		frame.getContentPane().add(lblTheBestVehicle);
 	}
 	

@@ -58,40 +58,7 @@ public class Vehicle extends JFrame {
 		lblCarrent.setBounds(205, 13, 300, 67);
 		contentPane.add(lblCarrent);
 		
-		JButton btnAll = new JButton("ALL");
-		btnAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnAll.setFont(new Font("Tahoma", Font.BOLD, 29));
-		btnAll.setBounds(12, 134, 684, 85);
-		contentPane.add(btnAll);
-		
-		JButton btnCars = new JButton("CARS");
-		btnCars.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnCars.setFont(new Font("Tahoma", Font.BOLD, 29));
-		btnCars.setBounds(12, 216, 684, 85);
-		contentPane.add(btnCars);
-		
-		JButton btnBikes = new JButton("BIKES");
-		btnBikes.setFont(new Font("Tahoma", Font.BOLD, 29));
-		btnBikes.setBounds(12, 293, 684, 90);
-		contentPane.add(btnBikes);
-		
-		JButton btnTrucks = new JButton("TRUCKS");
-		btnTrucks.setFont(new Font("Tahoma", Font.BOLD, 29));
-		btnTrucks.setBounds(12, 378, 684, 85);
-		contentPane.add(btnTrucks);
-		
-		JLabel lblSelectHowTo = new JLabel("SELECT HOW TO VIEW VEHICLES");
-		lblSelectHowTo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSelectHowTo.setBounds(47, 101, 245, 20);
-		contentPane.add(lblSelectHowTo);
-		
+
 		textField = new JTextField();
 		textField.setText("TODAY'S DATE");
 		textField.setColumns(10);
@@ -106,5 +73,52 @@ public class Vehicle extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(42, 78, 624, 2);
 		contentPane.add(separator);
+		
+		Panel panel = new Panel();
+		panel.setBounds(10, 86, 690, 47);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JButton btnViewVehicle = new JButton("View Vehicle");
+		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnViewVehicle.setBounds(10, 0, 196, 47);
+		panel.add(btnViewVehicle);
+		
+		JButton btnSearchVehicle = new JButton("Search Vehicle");
+		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnSearchVehicle.setBounds(203, 0, 159, 47);
+		panel.add(btnSearchVehicle);
+		
+		JButton btnMyRentals = new JButton("My Rentals");
+		btnMyRentals.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnMyRentals.setBounds(361, 0, 153, 47);
+		panel.add(btnMyRentals);
+		
+		JButton btnReturnVehicle = new JButton("Return Vehicle");
+		btnReturnVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReturnVehicle.setBounds(511, 0, 169, 47);
+		panel.add(btnReturnVehicle);
+		
+		Panel panel_1 = new Panel();
+		panel_1.setBounds(10, 147, 690, 272);
+		contentPane.add(panel_1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(42, 139, 624, 2);
+		contentPane.add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(42, 425, 624, 2);
+		contentPane.add(separator_2);
+		
+		JButton btnEnter = new JButton("ENTER");
+		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnEnter.setBounds(10, 438, 355, 35);
+		contentPane.add(btnEnter);
+		
+		JButton btnReset = new JButton("RESET");
+		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReset.setBounds(375, 438, 321, 35);
+		contentPane.add(btnReset);
 	}
 }
