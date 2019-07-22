@@ -121,4 +121,4 @@ public class Vehicle extends JFrame {
 		btnReset.setBounds(375, 438, 321, 35);
 		contentPane.add(btnReset);
 	}
-}// end of class
+}// end of class and
