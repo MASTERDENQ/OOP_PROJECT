@@ -1,27 +1,33 @@
 package car4rent;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.Panel;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class Vehicle extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -80,6 +86,49 @@ public class Vehicle extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnViewVehicle = new JButton("View Vehicle");
+		btnViewVehicle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JTable JTable1 = new JTable();
+				String filePath = "Vehicles.txt";
+				
+				File file = new File(filePath);
+				
+				try {
+					BufferedReader br = new BufferedReader(new FileReader(file));
+					 String firstLine = br.readLine().trim();
+					 String[] columnsName = firstLine.split(" ");
+					 DefaultTableModel model = (DefaultTableModel)JTable1.getModel();
+					 model.setColumnIdentifiers(columnsName);
+					 
+					// get lines from txt file
+			        Object[] tableLines = br.lines().toArray();
+			        
+			        // Extract data from lines
+		            // set data to table model
+		            for(int i = 0; i < tableLines.length; i++)
+		            {
+		                String line = tableLines[i].toString().trim();
+		                String[] dataRow = line.split(" ");
+		                model.addRow(dataRow);
+		            }
+		            
+		         // create JScrollPane
+		            JScrollPane pane = new JScrollPane(JTable1);
+		            pane.setBounds(0, 0, 880, 200);
+		            
+		            Vehicle frame = new Vehicle();
+		            frame.getContentPane().setLayout(null);
+		            
+		            frame.getContentPane().add(pane);
+					
+				}
+				catch(Exception e) {
+					Logger.getLogger(Vehicle.class.getName()).log(Level.SEVERE, null, e);
+				}
+				
+				
+			}
+		});
 		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnViewVehicle.setBounds(10, 0, 190, 47);
 		panel.add(btnViewVehicle);
@@ -99,9 +148,13 @@ public class Vehicle extends JFrame {
 		btnReturnVehicle.setBounds(511, 0, 169, 47);
 		panel.add(btnReturnVehicle);
 		
-		Panel panel_1 = new Panel();
-		panel_1.setBounds(10, 147, 686, 253);
-		contentPane.add(panel_1);
+		Panel main_panel = new Panel();
+		main_panel.setBackground(Color.GREEN);
+		main_panel.setBounds(10, 147, 686, 253);
+		contentPane.add(main_panel);
+		
+		table = new JTable();
+		main_panel.add(table);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(42, 139, 624, 2);
