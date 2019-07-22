@@ -80,27 +80,27 @@ public class Vehicle extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnViewVehicle = new JButton("View Vehicle");
-		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnViewVehicle.setBounds(10, 0, 196, 47);
+		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnViewVehicle.setBounds(10, 0, 190, 47);
 		panel.add(btnViewVehicle);
 		
 		JButton btnSearchVehicle = new JButton("Search Vehicle");
-		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnSearchVehicle.setBounds(203, 0, 159, 47);
+		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnSearchVehicle.setBounds(199, 0, 163, 47);
 		panel.add(btnSearchVehicle);
 		
 		JButton btnMyRentals = new JButton("My Rentals");
-		btnMyRentals.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnMyRentals.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnMyRentals.setBounds(361, 0, 153, 47);
 		panel.add(btnMyRentals);
 		
 		JButton btnReturnVehicle = new JButton("Return Vehicle");
-		btnReturnVehicle.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReturnVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnReturnVehicle.setBounds(511, 0, 169, 47);
 		panel.add(btnReturnVehicle);
 		
 		Panel panel_1 = new Panel();
-		panel_1.setBounds(10, 147, 690, 272);
+		panel_1.setBounds(10, 147, 686, 253);
 		contentPane.add(panel_1);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -108,17 +108,17 @@ public class Vehicle extends JFrame {
 		contentPane.add(separator_1);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(42, 425, 624, 2);
+		separator_2.setBounds(42, 406, 624, 2);
 		contentPane.add(separator_2);
 		
 		JButton btnEnter = new JButton("ENTER");
-		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnEnter.setBounds(10, 438, 355, 35);
+		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		btnEnter.setBounds(12, 416, 355, 47);
 		contentPane.add(btnEnter);
 		
 		JButton btnReset = new JButton("RESET");
-		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnReset.setBounds(375, 438, 321, 35);
+		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		btnReset.setBounds(375, 416, 321, 47);
 		contentPane.add(btnReset);
 	}
 }// end of class and
