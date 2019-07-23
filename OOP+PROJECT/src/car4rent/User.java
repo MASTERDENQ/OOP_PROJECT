@@ -3,18 +3,21 @@ package car4rent;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class User extends JFrame {
@@ -156,6 +159,32 @@ public class User extends JFrame {
 		lblDatetime.setBounds(602, 13, 50, 36);
 		contentPane.add(lblDatetime);
 	}
+	
+	/**
+	 * Validate username.
+	 */
+	
+//	public void signIn() {
+//
+//		File uFile = new File("UserFile.txt");
+//		Scanner scan = new Scanner(uFile);
+//		
+//		int g = -1;
+//		
+//		while(g > 0){
+//			String input = JOptionPane.showInputDialog("PLEASE ENTER USERNAME: ");
+//
+//			if(input.equals(username)) {
+//				buy.start();// Vehicle object
+//				dispose();
+//			}
+//			else{
+//				input = JOptionPane.showInputDialog("INVALID ENTRY ** PLEASE TRY AGIAN:");
+//			}// end if else statement
+//
+//		}// end of while
+//	}// end of signIn
+
 	
 	/**
 	 * Save new user to userFile.txt.

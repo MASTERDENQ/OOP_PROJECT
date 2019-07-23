@@ -67,7 +67,8 @@ public class Car4Rent_Main {
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User user = new User();
-				user.start();
+				
+				//user.signIn();
 				frame.dispose();
 			}
 		});
