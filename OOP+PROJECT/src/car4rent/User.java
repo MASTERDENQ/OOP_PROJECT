@@ -130,17 +130,29 @@ public class User extends JFrame {
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				username = usernameTextField.getText();
-				fullName = fullNameTextField.getText();
-				homeAddress = addressTextField.getText();
-				phoneNumber = phoneTextField.getText();
+				boolean pass = false;
 				
-				saveNewUser();
+				while(username != null && fullName == null && homeAddress == null && phoneNumber == null) {
+					username = usernameTextField.getText();
+					fullName = fullNameTextField.getText();
+					homeAddress = addressTextField.getText();
+					phoneNumber = phoneTextField.getText();
+					pass = true;
+				}	
+
 				
-				Vehicle buy = new Vehicle();
-				buy.start();
-				
+				if(pass == true) {
+					saveNewUser();
+					Vehicle.start();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "!!!!SORRY RETRY AGAIN. ALL FIELD MUST BE FILLED OUT PROPERTY!!!!");
+					User.start();
+				}
+					
 				dispose();
+				
+			
 			}
 		});
 		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 25));
