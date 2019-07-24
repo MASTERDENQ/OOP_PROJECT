@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
@@ -66,9 +67,11 @@ public class Car4Rent_Main {
 		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				User user = new User();
-				
-				//user.signIn();
+				try {
+					User.signIn();
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
 				frame.dispose();
 			}
 		});
@@ -79,8 +82,7 @@ public class Car4Rent_Main {
 		btnSignUp.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				User user = new User();
-				user.start();
+				User.start();
 				frame.dispose();
 								
 			}

@@ -5,9 +5,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -38,7 +41,7 @@ public class User extends JFrame {
 	/**
 	 * Launch this application window.
 	 */
-	public void start() {
+	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -162,28 +165,40 @@ public class User extends JFrame {
 	
 	/**
 	 * Validate username.
+	 * @throws FileNotFoundException 
 	 */
 	
-//	public void signIn() {
-//
-//		File uFile = new File("UserFile.txt");
-//		Scanner scan = new Scanner(uFile);
-//		
-//		int g = -1;
-//		
-//		while(g > 0){
-//			String input = JOptionPane.showInputDialog("PLEASE ENTER USERNAME: ");
-//
-//			if(input.equals(username)) {
-//				buy.start();// Vehicle object
-//				dispose();
-//			}
-//			else{
-//				input = JOptionPane.showInputDialog("INVALID ENTRY ** PLEASE TRY AGIAN:");
-//			}// end if else statement
-//
-//		}// end of while
-//	}// end of signIn
+	public static void signIn() throws FileNotFoundException {
+		
+		String input = JOptionPane.showInputDialog("PLEASE ENTER USERNAME: ");
+
+		File uFile = new File("UserFile.txt");
+		Scanner scan = new Scanner(uFile);
+		
+		boolean found = false;
+		
+		while(!found && scan.hasNext()){
+			
+			String name = scan.next();
+			String fullname = scan.next();
+			String address = scan.next();
+			String number = scan.next();
+			
+			System.out.println(name);
+			
+			if(input.equals(name)) {
+				found = true;
+				Vehicle.start();// Vehicle object
+				break;
+			}
+		}// end of while
+		
+		if(found == false) {
+			System.out.println("User not found");
+		}
+		scan.close();
+		
+	}// end of signIn
 
 	
 	/**

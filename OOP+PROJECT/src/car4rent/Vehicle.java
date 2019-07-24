@@ -32,7 +32,7 @@ public class Vehicle extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public void start() {
+	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
