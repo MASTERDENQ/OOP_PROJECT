@@ -1,16 +1,13 @@
-licensePlateNumber| type| brand| model | year| color| engineSize| transmission| mileage  | numberOfSeat| ratePerDay| toweringCapacity | numberOfHelmets | rentalStatus
-5765BG            | Car |Honda | Fit   | 2014| Blue | 1.5L      | A           | 38,941.00| 5           | 11,000.00 |  -               | -               | Avialable 
-6708CP            | Car |Subaru|Impreza| 2012| Black| 2.0L      | A           | 63,752.00| 5           | 12,000.00 |  -               | -               | Avialable 
-1416JG Car Toyota Probox 2012	White 1.6L A 321,843.00 5 6,500.00 - - Avialable 
-8638HS Car BMW M5 2019 Black	4.4L M 23.00 5 70,000.00 - - Avialable 
-4337EB Car Mercedes AMG C 63 2019 White 4.0L A 428.00 5 55,000.00 - - Avialable 
-8967PO Truck Toyota Hilux 2018 Orange	2.4L M 57,542.00 5 25,000.00 750 - Avialable 
-7532CY Truck Ford Ranger Raptor 2018 Blue 3.2L A 14,731.00 5 42,000.00 2500 - Avialable 
+5765BG Car Honda Fit 2014 Blue 1.5L A 38,941.00 5 11,000.00 - - Avialable 
+6708CP Car Subaru Impreza 2012 Black 2.0L A 63,752.00 5 12,000.00 - - Avialable 
+1416JG Car Toyota Probox 2012 White 1.6L A 321,843.00 5 6,500.00 - - Avialable 
+8638HS Car BMW M5 2019 Black 4.4L M 23.00 5 70,000.00 - - Avialable 
+4337EB Car Mercedes AMG 2019 White 5.3L M 428.00 5 55,000.00 - - Avialable 
+8967PO Truck Toyota Hilux 2018 Orange 2.4L M 57,542.00 5 25,000.00 750 - Avialable 
+7532CY Truck Ford Ranger 2018 Blue 3.2L A 14,731.00 5 42,000.00 2500 - Avialable 
 3705FN Truck Nissan Navara 2018 Black 2.3L A 25,368.00 5 22,000.00 3500 - Avialable 
 8594HE Truck Volkswagen Amarok 2019 Silver 2.0L M 13,512.00 5 38,000.00 1154 - Avialable 
 7669BU Truck Honda Ridgeline 2017 Black 3.5L A 17,821.00 5 40,000.00 2267 - Avialable 
-7950HI Bike Yamaha YZF R1 2018 Blue 1.0L M 3,532.00 2 7,000.00 - 1 Avialable 
-7752BI Bike Kawasaki Ninja 300 2018 Red 0.3L M 152.00 2 12,000.00 - 1 Avialable 
-2853ER Bike Ducati Monster 821 2017 Red 0.15L M 34,512.00 2 5,000.00 - 2 Avialable 
-1583CD Bike Suzuki SV650X 2018 Silver 0.65L M 23,516.00 2 9,000.00 - 2 Avialable 
-8818FU Bike Honda Activa5G 2017 Yellow 0.12L	M 67,328.00 2 3,000.00 - 2 Avialable 
+7950HI Bike Yamaha YZF 2018 Blue 1.0L M 3,532.00 2 7,000.00 - 1 Avialable 
+7752BI Bike Kawasaki Ninja 2018 Red 0.3L M 152.00 2 12,000.00 - 1 Avialable 
+2853ER Bike Ducati Monster 201Red7 821 0.15L M 34,512.00 2 5,000.00 - 2 Avialable 

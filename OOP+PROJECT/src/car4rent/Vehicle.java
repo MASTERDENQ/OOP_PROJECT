@@ -22,6 +22,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollBar;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class Vehicle extends JFrame {
 
@@ -88,6 +96,12 @@ public class Vehicle extends JFrame {
 		JButton btnViewVehicle = new JButton("View Vehicle");
 		btnViewVehicle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				String[] cols = {"licensePlateNumber","type","brand","model","year","color","engineSize","transmission",
+						"mileage","numberOfSeat","ratePerDay", "towingCapacity", "numberOfHelmets","rentalStatus"};
+				
+				model.setDataVector(null, cols);
+				table.setModel(new DefaultTableModel(null,cols));
 				
 				String filePath = "Vehicles.txt";
 				
@@ -95,12 +109,22 @@ public class Vehicle extends JFrame {
 				
 				try {
 					BufferedReader br = new BufferedReader(new FileReader(file));
-					 String firstLine = br.readLine().trim();
-					 String[] columnsName = firstLine.split("|");
-					 DefaultTableModel model = (DefaultTableModel)table.getModel();
-					 model.setColumnIdentifiers(columnsName);
+//					 String firstLine = br.readLine().trim();
+//					 String[] header = firstLine.split(" ");
+//					 DefaultTableModel model = (DefaultTableModel)table.getModel();
+//					 model.setColumnIdentifiers(header);
 					 
-		         
+					  // get lines from txt file
+			           Object[] tableLines = br.lines().toArray();
+			            
+			          // extratct data from lines
+			          // set data to jtable model
+			          for(int i = 0; i < tableLines.length; i++)
+			          {
+			             String line = tableLines[i].toString().trim();
+			             String[] dataRow = line.split(" ");
+			             model.addRow(dataRow);
+			          }
 					
 				}
 				catch(Exception e) {
@@ -129,13 +153,28 @@ public class Vehicle extends JFrame {
 		btnReturnVehicle.setBounds(515, 0, 175, 47);
 		panel.add(btnReturnVehicle);
 		
-		Panel main_panel = new Panel();
-		main_panel.setBackground(Color.GREEN);
-		main_panel.setBounds(10, 147, 690, 253);
-		contentPane.add(main_panel);
+		Panel tablePanel = new Panel();
+		tablePanel.setBackground(Color.GREEN);
+		tablePanel.setBounds(10, 147, 690, 253);
+		contentPane.add(tablePanel);
 		
 		table = new JTable();
-		main_panel.add(table);
+		GroupLayout gl_tablePanel = new GroupLayout(tablePanel);
+		gl_tablePanel.setHorizontalGroup(
+			gl_tablePanel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_tablePanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(table, GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_tablePanel.setVerticalGroup(
+			gl_tablePanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_tablePanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(table, GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		tablePanel.setLayout(gl_tablePanel);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(42, 139, 624, 2);
