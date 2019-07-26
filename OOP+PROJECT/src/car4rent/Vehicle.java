@@ -1,5 +1,4 @@
 package car4rent;
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -8,28 +7,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollBar;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
 
 public class Vehicle extends JFrame {
 
@@ -101,7 +96,6 @@ public class Vehicle extends JFrame {
 						"mileage","numberOfSeat","ratePerDay", "towingCapacity", "numberOfHelmets","rentalStatus"};
 				
 				model.setDataVector(null, cols);
-				table.setModel(new DefaultTableModel(null,cols));
 				
 				String filePath = "Vehicles.txt";
 				
@@ -188,5 +182,41 @@ public class Vehicle extends JFrame {
 		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 45));
 		btnEnter.setBounds(42, 416, 624, 57);
 		contentPane.add(btnEnter);
+	}
+	
+	public void searchOptions() throws Exception {
+		
+		boolean found = false;
+		
+		Scanner scan = new Scanner(new File("Vehicles.txt"));
+		char L, B, M, Y;
+		JOptionPane.showMessageDialog(null, "SEARCH TYPES ARE\n"+ 
+		 "****L- Licence Plate #: B- Brand: M- Model: Y: Year****");
+		
+		String input = JOptionPane.showInputDialog("PLEASE ENTER TYPE OF SEARCH CHARACTER:  ");
+		
+		while(scan.hasNext() && !found) {
+			L=scan.next().charAt(0);
+			B=scan.next().charAt(0);
+			M=scan.next().charAt(0);
+			Y=scan.next().charAt(0);
+			if(scan.equals(input)){
+				found=true;
+			};
+			
+			//found=scan.contain(scan.next);
+			if (found== true)
+				break;
+			
+		}
+		
+		if (found) {
+			JOptionPane.showMessageDialog(null,"Search Sucessfully Found");
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"Search Not Found");
+		} scan.close();
+
+			
 	}
 }// end of class and
