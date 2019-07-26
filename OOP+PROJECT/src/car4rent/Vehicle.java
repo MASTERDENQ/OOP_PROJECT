@@ -88,7 +88,7 @@ public class Vehicle extends JFrame {
 		JButton btnViewVehicle = new JButton("View Vehicle");
 		btnViewVehicle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JTable JTable1 = new JTable();
+				
 				String filePath = "Vehicles.txt";
 				
 				File file = new File(filePath);
@@ -96,30 +96,11 @@ public class Vehicle extends JFrame {
 				try {
 					BufferedReader br = new BufferedReader(new FileReader(file));
 					 String firstLine = br.readLine().trim();
-					 String[] columnsName = firstLine.split(" ");
-					 DefaultTableModel model = (DefaultTableModel)JTable1.getModel();
+					 String[] columnsName = firstLine.split("|");
+					 DefaultTableModel model = (DefaultTableModel)table.getModel();
 					 model.setColumnIdentifiers(columnsName);
 					 
-					// get lines from txt file
-			        Object[] tableLines = br.lines().toArray();
-			        
-			        // Extract data from lines
-		            // set data to table model
-		            for(int i = 0; i < tableLines.length; i++)
-		            {
-		                String line = tableLines[i].toString().trim();
-		                String[] dataRow = line.split(" ");
-		                model.addRow(dataRow);
-		            }
-		            
-		         // create JScrollPane
-		            JScrollPane pane = new JScrollPane(JTable1);
-		            pane.setBounds(0, 0, 880, 200);
-		            
-		            Vehicle frame = new Vehicle();
-		            frame.getContentPane().setLayout(null);
-		            
-		            frame.getContentPane().add(pane);
+		         
 					
 				}
 				catch(Exception e) {
@@ -130,27 +111,27 @@ public class Vehicle extends JFrame {
 			}
 		});
 		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnViewVehicle.setBounds(10, 0, 190, 47);
+		btnViewVehicle.setBounds(0, 0, 193, 47);
 		panel.add(btnViewVehicle);
 		
 		JButton btnSearchVehicle = new JButton("Search Vehicle");
 		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnSearchVehicle.setBounds(199, 0, 163, 47);
+		btnSearchVehicle.setBounds(192, 0, 170, 47);
 		panel.add(btnSearchVehicle);
 		
 		JButton btnMyRentals = new JButton("My Rentals");
 		btnMyRentals.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnMyRentals.setBounds(361, 0, 153, 47);
+		btnMyRentals.setBounds(361, 0, 156, 47);
 		panel.add(btnMyRentals);
 		
 		JButton btnReturnVehicle = new JButton("Return Vehicle");
 		btnReturnVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnReturnVehicle.setBounds(511, 0, 169, 47);
+		btnReturnVehicle.setBounds(515, 0, 175, 47);
 		panel.add(btnReturnVehicle);
 		
 		Panel main_panel = new Panel();
 		main_panel.setBackground(Color.GREEN);
-		main_panel.setBounds(10, 147, 686, 253);
+		main_panel.setBounds(10, 147, 690, 253);
 		contentPane.add(main_panel);
 		
 		table = new JTable();
@@ -165,13 +146,8 @@ public class Vehicle extends JFrame {
 		contentPane.add(separator_2);
 		
 		JButton btnEnter = new JButton("ENTER");
-		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnEnter.setBounds(12, 416, 355, 47);
+		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 45));
+		btnEnter.setBounds(42, 416, 624, 57);
 		contentPane.add(btnEnter);
-		
-		JButton btnReset = new JButton("RESET");
-		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnReset.setBounds(375, 416, 321, 47);
-		contentPane.add(btnReset);
 	}
 }// end of class and

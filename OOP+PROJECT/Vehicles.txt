@@ -1,5 +1,6 @@
-5765BG Car Honda Fit 2014 Blue 1.5L A 38,941.00  5 11,000.00 - - Avialable 
-6708CP Car Subaru Impreza 2012 Black 2.0L A 63,752.00 5 12,000.00 - - Avialable 
+licensePlateNumber| type| brand| model | year| color| engineSize| transmission| mileage  | numberOfSeat| ratePerDay| toweringCapacity | numberOfHelmets | rentalStatus
+5765BG            | Car |Honda | Fit   | 2014| Blue | 1.5L      | A           | 38,941.00| 5           | 11,000.00 |  -               | -               | Avialable 
+6708CP            | Car |Subaru|Impreza| 2012| Black| 2.0L      | A           | 63,752.00| 5           | 12,000.00 |  -               | -               | Avialable 
 1416JG Car Toyota Probox 2012	White 1.6L A 321,843.00 5 6,500.00 - - Avialable 
 8638HS Car BMW M5 2019 Black	4.4L M 23.00 5 70,000.00 - - Avialable 
 4337EB Car Mercedes AMG C 63 2019 White 4.0L A 428.00 5 55,000.00 - - Avialable 
