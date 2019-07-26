@@ -36,7 +36,7 @@ public class User extends JFrame {
 	private JTextField fullNameTextField;
 	private JTextField addressTextField;
 	private JTextField phoneTextField;
-	private JTextField txtTodaysDate;
+	private JTextField textField;
 
 	/**
 	 * Launch this application window.
@@ -132,7 +132,7 @@ public class User extends JFrame {
 				
 				boolean pass = false;
 				
-				while(username != null && fullName == null && homeAddress == null && phoneNumber == null) {
+				while(username == null || fullName == null || homeAddress == null || phoneNumber == null) {
 					username = usernameTextField.getText();
 					fullName = fullNameTextField.getText();
 					homeAddress = addressTextField.getText();
@@ -163,16 +163,16 @@ public class User extends JFrame {
 		notice.setBounds(12, 396, 397, 16);
 		contentPane.add(notice);
 		
-		txtTodaysDate = new JTextField();
-		txtTodaysDate.setText("TODAY'S DATE");
-		txtTodaysDate.setBounds(566, 46, 116, 22);
-		contentPane.add(txtTodaysDate);
-		txtTodaysDate.setColumns(10);
+		JLabel label = new JLabel("DATE");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		label.setBounds(577, 13, 50, 36);
+		contentPane.add(label);
 		
-		JLabel lblDatetime = new JLabel("DATE");
-		lblDatetime.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblDatetime.setBounds(602, 13, 50, 36);
-		contentPane.add(lblDatetime);
+		textField = new JTextField();
+		textField.setText("07/26/2019");
+		textField.setColumns(10);
+		textField.setBounds(572, 50, 86, 22);
+		contentPane.add(textField);
 	}
 	
 	/**

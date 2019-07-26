@@ -75,7 +75,7 @@ public class Vehicle extends JFrame {
 		textField = new JTextField();
 		textField.setText(dateFormat.format(currentDate));
 		textField.setColumns(10);
-		textField.setBounds(580, 46, 116, 22);
+		textField.setBounds(595, 50, 86, 22);
 		contentPane.add(textField);
 		
 		JLabel label = new JLabel("DATE");
@@ -182,10 +182,10 @@ public class Vehicle extends JFrame {
 		separator_2.setBounds(42, 406, 624, 2);
 		contentPane.add(separator_2);
 		
-		JButton btnEnter = new JButton("ENTER");
-		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		btnEnter.setBounds(42, 416, 624, 57);
-		contentPane.add(btnEnter);
+		JButton RentBtn = new JButton("RENT");
+		RentBtn.setFont(new Font("Tahoma", Font.PLAIN, 45));
+		RentBtn.setBounds(42, 416, 624, 57);
+		contentPane.add(RentBtn);
 	}
 	
 	public void searchOptions() throws Exception {
