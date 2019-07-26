@@ -206,12 +206,10 @@ public class Vehicle extends JFrame {
 		
 		BufferedReader br = new BufferedReader(new FileReader("Vehicles.txt"));
 	
-		JOptionPane.showMessageDialog(null, "SEARCH TYPES ARE\n"+ 
-		 "****L- Licence Plate #: B- Brand: M- Model: Y: Year****");
+		JOptionPane.showMessageDialog(null, "SEARCH TYPES ARE\n" + 
+		 "****L- Licence Plate #: B- Brand: M- Model: Y: Year****\n");
 		
-		String input = JOptionPane.showInputDialog("PLEASE ENTER TYPE OF SEARCH CHARACTER:  ");
-		
-		String key = JOptionPane.showInputDialog("ENTER KEY:  ");
+		String key = JOptionPane.showInputDialog("ENTER SEARCH:  ");
 		
 		Object[] tableLines = br.lines().toArray();
 		
@@ -221,7 +219,9 @@ public class Vehicle extends JFrame {
            
            if(line.contains(key)) {
         	   String[] dataRow = line.split(" ");
-        	   model.addRow(dataRow);
+        	   //model.addRow(dataRow);
+        	   found = true;
+        	   break;
            }
            
         }
@@ -232,7 +232,6 @@ public class Vehicle extends JFrame {
 		else {
 			JOptionPane.showMessageDialog(null,"Search Not Found");
 		} 
-
-			
 	}
+		
 }// end of class and
