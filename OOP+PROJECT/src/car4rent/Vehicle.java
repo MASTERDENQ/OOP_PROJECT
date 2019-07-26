@@ -67,9 +67,10 @@ public class Vehicle extends JFrame {
 		lblCarrent.setBounds(205, 13, 300, 67);
 		contentPane.add(lblCarrent);
 		
-
+		Date currentDate = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		textField = new JTextField();
-		textField.setText("TODAY'S DATE");
+		textField.setText(dateFormat.format(currentDate));
 		textField.setColumns(10);
 		textField.setBounds(580, 46, 116, 22);
 		contentPane.add(textField);
