@@ -142,9 +142,10 @@ public class User extends JFrame {
 				}	
 				else {	
 					saveNewUser();
-					Vehicle.start();
+					Vehicles.start();
 				}
-					dispose();
+				
+				dispose();
 			}
 		});
 		btnEnter.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -188,18 +189,19 @@ public class User extends JFrame {
 			String address = scan.next();
 			String number = scan.next();
 			
-			System.out.println(name);
+			//System.out.println(name);
 			
 			if(input.equals(name)) {
 				found = true;
-				Vehicle.start();// Vehicle object
+				Vehicles.start();// Vehicle object
 				break;
 			}
 		}// end of while
 		
 		if(found == false) {
-			System.out.println("User not found");
+			JOptionPane.showMessageDialog(null,"Search Not Found");
 		}
+		
 		scan.close();
 		
 	}// end of signIn
