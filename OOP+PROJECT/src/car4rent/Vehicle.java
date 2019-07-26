@@ -137,6 +137,16 @@ public class Vehicle extends JFrame {
 		panel.add(btnViewVehicle);
 		
 		JButton btnSearchVehicle = new JButton("Search Vehicle");
+		btnSearchVehicle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					searchOptions();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSearchVehicle.setBounds(192, 0, 170, 47);
 		panel.add(btnSearchVehicle);
@@ -190,36 +200,38 @@ public class Vehicle extends JFrame {
 	
 	public void searchOptions() throws Exception {
 		
+		DefaultTableModel model = (DefaultTableModel)table.getModel();
+		
 		boolean found = false;
 		
-		Scanner scan = new Scanner(new File("Vehicles.txt"));
-		char L, B, M, Y;
+		BufferedReader br = new BufferedReader(new FileReader("Vehicles.txt"));
+	
 		JOptionPane.showMessageDialog(null, "SEARCH TYPES ARE\n"+ 
 		 "****L- Licence Plate #: B- Brand: M- Model: Y: Year****");
 		
 		String input = JOptionPane.showInputDialog("PLEASE ENTER TYPE OF SEARCH CHARACTER:  ");
 		
-		while(scan.hasNext() && !found) {
-			L=scan.next().charAt(0);
-			B=scan.next().charAt(0);
-			M=scan.next().charAt(0);
-			Y=scan.next().charAt(0);
-			if(scan.equals(input)){
-				found=true;
-			};
-			
-			//found=scan.contain(scan.next);
-			if (found== true)
-				break;
-			
-		}
+		String key = JOptionPane.showInputDialog("ENTER KEY:  ");
+		
+		Object[] tableLines = br.lines().toArray();
+		
+		for(int i = 0; i < tableLines.length; i++)
+        {
+           String line = tableLines[i].toString().trim();
+           
+           if(line.contains(key)) {
+        	   String[] dataRow = line.split(" ");
+        	   model.addRow(dataRow);
+           }
+           
+        }
 		
 		if (found) {
 			JOptionPane.showMessageDialog(null,"Search Sucessfully Found");
 		}
 		else {
 			JOptionPane.showMessageDialog(null,"Search Not Found");
-		} scan.close();
+		} 
 
 			
 	}
