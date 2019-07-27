@@ -1,6 +1,11 @@
-
+/**
+ * Written By :
+ * Tyrone Wallace - 1706903
+ * Kevin Irons - 
+ */
 package car4rent;
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
@@ -30,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+@SuppressWarnings({ "serial", "unused" })
 public class Vehicles extends JFrame {
 
 	private JPanel contentPane;
@@ -69,7 +75,8 @@ public class Vehicles extends JFrame {
 
 
 	/**
-	 * Launch the application.
+	 * Launch the Vehicle Frame.
+	 * Default constructors are the main display.
 	 */
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -79,7 +86,7 @@ public class Vehicles extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				}// Exception Handling
 			}
 		});
 	}
@@ -96,6 +103,7 @@ public class Vehicles extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//Main Header
 		JLabel lblCarrent = new JLabel("CAR-4-RENT");
 		lblCarrent.setForeground(Color.BLUE);
 		lblCarrent.setFont(new Font("Tahoma", Font.PLAIN, 48));
@@ -103,6 +111,7 @@ public class Vehicles extends JFrame {
 		lblCarrent.setBounds(205, 13, 300, 67);
 		contentPane.add(lblCarrent);
 		
+		//Date: Display Current Date
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		textField = new JTextField();
@@ -111,64 +120,38 @@ public class Vehicles extends JFrame {
 		textField.setBounds(595, 50, 86, 22);
 		contentPane.add(textField);
 		
+		//Date: Label
 		JLabel label = new JLabel("DATE");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		label.setBounds(616, 13, 50, 36);
+		label.setBounds(595, 13, 50, 36);
 		contentPane.add(label);
 		
+		
+		//Separates sections of display with  a line
 		JSeparator separator = new JSeparator();
 		separator.setBounds(42, 78, 624, 2);
 		contentPane.add(separator);
 		
+		//Panel in Window		
 		Panel panel = new Panel();
 		panel.setBounds(10, 86, 690, 47);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		//Display All Vehicles when clicked
 		JButton btnViewVehicle = new JButton("View Vehicle");
 		btnViewVehicle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				DefaultTableModel model = (DefaultTableModel)table.getModel();
-				String[] cols = {"licensePlateNumber","type","brand","model","year","color","engineSize","transmission",
-						"mileage","numberOfSeat","ratePerDay", "towingCapacity", "numberOfHelmets","rentalStatus"};
-				
-				model.setDataVector(null, cols);
-				
-				String filePath = "Vehicles.txt";
-				
-				File file = new File(filePath);
-				
-				try {
-					BufferedReader br = new BufferedReader(new FileReader(file));
-//					 String firstLine = br.readLine().trim();
-//					 String[] header = firstLine.split(" ");
-//					 DefaultTableModel model = (DefaultTableModel)table.getModel();
-//					 model.setColumnIdentifiers(header);
-					 
-					  // get lines from txt file
-			           Object[] tableLines = br.lines().toArray();
-			            
-			          // extract data from lines
-			          // set data to jtable model
-			          for(int i = 0; i < tableLines.length; i++)
-			          {
-			             String line = tableLines[i].toString().trim();
-			             String[] dataRow = line.split(" ");
-			             model.addRow(dataRow);
-			          }
-					
-				}
-				catch(Exception e) {
-					Logger.getLogger(Vehicles.class.getName()).log(Level.SEVERE, null, e);
-				}
-				
-				
+				//Call function
+				viewVehicles();				
 			}
 		});
 		btnViewVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnViewVehicle.setBounds(0, 0, 193, 47);
 		panel.add(btnViewVehicle);
 		
+		
+		//Search for any Vehicle on click
 		JButton btnSearchVehicle = new JButton("Search Vehicle");
 		btnSearchVehicle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -176,28 +159,41 @@ public class Vehicles extends JFrame {
 					searchOptions();
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				}//Catches Exception if thrown from function
 			}
 		});
 		btnSearchVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSearchVehicle.setBounds(192, 0, 170, 47);
 		panel.add(btnSearchVehicle);
 		
+		//Display User Rented Vehicles when clicked read from rentVehicles.txt file
 		JButton btnMyRentals = new JButton("My Rentals");
+		btnMyRentals.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnMyRentals.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnMyRentals.setBounds(361, 0, 156, 47);
 		panel.add(btnMyRentals);
 		
+		//Display User returnable Vehicles when clicked read from rentVehicles.txt file
 		JButton btnReturnVehicle = new JButton("Return Vehicle");
+		btnReturnVehicle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnReturnVehicle.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnReturnVehicle.setBounds(515, 0, 175, 47);
 		panel.add(btnReturnVehicle);
 		
+		//Holds table
 		Panel tablePanel = new Panel();
 		tablePanel.setBackground(Color.GREEN);
 		tablePanel.setBounds(10, 147, 690, 253);
 		contentPane.add(tablePanel);
 		
+		//Reference of Table Object
 		table = new JTable();
 		GroupLayout gl_tablePanel = new GroupLayout(tablePanel);
 		gl_tablePanel.setHorizontalGroup(
@@ -224,10 +220,15 @@ public class Vehicles extends JFrame {
 		separator_2.setBounds(42, 406, 624, 2);
 		contentPane.add(separator_2);
 		
-		JButton RentBtn = new JButton("RENT");
-		RentBtn.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		RentBtn.setBounds(42, 416, 624, 57);
-		contentPane.add(RentBtn);
+		//Store Max 3 Vehicles for one use to rentVehicles.txt file
+		JButton btnRent = new JButton("RENT");
+		btnRent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnRent.setFont(new Font("Tahoma", Font.PLAIN, 45));
+		btnRent.setBounds(42, 416, 624, 57);
+		contentPane.add(btnRent);
 	}
 	
 
@@ -235,9 +236,48 @@ public class Vehicles extends JFrame {
 	/**
 	 * Utilities	.
 	 */
+	@SuppressWarnings("resource")
+	public void viewVehicles() {
+		DefaultTableModel model = (DefaultTableModel)table.getModel();
+		String[] cols = {"licensePlateNumber","type","brand","model","year","color","engineSize","transmission",
+				"mileage","numberOfSeat","ratePerDay", "towingCapacity", "numberOfHelmets","rentalStatus"};
+		
+		model.setDataVector(null, cols);
+		
+		String filePath = "Vehicles.txt";
+		
+		File file = new File(filePath);
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+//			 String firstLine = br.readLine().trim();
+//			 String[] header = firstLine.split(" ");
+//			 DefaultTableModel model = (DefaultTableModel)table.getModel();
+//			 model.setColumnIdentifiers(header);
+			 
+			  // get lines from text file
+	           Object[] tableLines = br.lines().toArray();
+	            
+	          // extract data from lines
+	          // set data to table model
+	          for(int i = 0; i < tableLines.length; i++)
+	          {
+	             String line = tableLines[i].toString().trim();
+	             String[] dataRow = line.split(" ");
+	             model.addRow(dataRow);
+	          }
+			
+		}
+		catch(Exception e) {
+			Logger.getLogger(Vehicles.class.getName()).log(Level.SEVERE, null, e);
+		}
+	}
 
+	@SuppressWarnings("resource")
 	public void searchOptions() throws Exception {
-		table.setModel(new DefaultTableModel(null,new String[]{" "}));
+		table.setModel(new DefaultTableModel(null,new String[]{"licensePlateNumber","type","brand",
+				"model","year","color","engineSize","transmission","mileage","numberOfSeat","ratePerDay", 
+				"towingCapacity", "numberOfHelmets","rentalStatus"}));
 		
 		DefaultTableModel model = (DefaultTableModel)table.getModel();
 		

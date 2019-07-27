@@ -1,3 +1,7 @@
+/**
+ * Written By :
+ * Tyrone Wallace - 1706903
+ */
 package car4rent;
 
 import java.awt.Color;
@@ -11,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -22,24 +28,26 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 public class User extends JFrame {
 
-	//States/ Attributes
-	private String username;
-	private String fullName;
-	private String homeAddress;
-	private String phoneNumber;
-		
+	//JFrame
 	private JPanel contentPane;
 	private JTextField usernameTextField;
 	private JTextField fullNameTextField;
 	private JTextField addressTextField;
 	private JTextField phoneTextField;
 	private JTextField textField;
+	
+	//States/ Attributes
+	private String username;
+	private String fullName;
+	private String homeAddress;
+	private String phoneNumber;
+
 
 	/**
-	 * Launch this application window.
+	 * Launch the User Frame.
 	 */
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,10 +63,11 @@ public class User extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the User Frame.
 	 */
 	public User() {
 		
+		//Creates main Panel
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 712, 472);
 		contentPane = new JPanel();
@@ -67,10 +76,12 @@ public class User extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//Separate contents on panel
 		JSeparator separator = new JSeparator();
 		separator.setBounds(40, 81, 624, 2);
 		contentPane.add(separator);
 		
+		//Label
 		JLabel lblCarrent = new JLabel("CAR-4-RENT");
 		lblCarrent.setForeground(Color.BLUE);
 		lblCarrent.setFont(new Font("Tahoma", Font.PLAIN, 52));
@@ -78,54 +89,64 @@ public class User extends JFrame {
 		lblCarrent.setBounds(192, 13, 291, 63);
 		contentPane.add(lblCarrent);
 		
+		//Username
 		JLabel lblUsername = new JLabel("USERNAME");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblUsername.setBounds(40, 144, 86, 17);
 		contentPane.add(lblUsername);
 		
+		//FullName
 		JLabel lblFullName = new JLabel("FULL NAME");
 		lblFullName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblFullName.setBounds(40, 196, 86, 17);
 		contentPane.add(lblFullName);
 		
+		//Address
 		JLabel lblAddress = new JLabel("ADDRESS");
 		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAddress.setBounds(40, 244, 86, 17);
 		contentPane.add(lblAddress);
 		
+		//Phone #
 		JLabel lblPhone = new JLabel("PHONE #");
 		lblPhone.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPhone.setBounds(40, 290, 80, 15);
 		contentPane.add(lblPhone);
 		
+		//Accepts Username
 		usernameTextField = new JTextField();
 		usernameTextField.setBounds(138, 143, 264, 18);
 		contentPane.add(usernameTextField);
 		usernameTextField.setColumns(10);
 		
+		//Accepts FullName
 		fullNameTextField = new JTextField();
 		fullNameTextField.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		fullNameTextField.setBounds(138, 194, 264, 19);
 		contentPane.add(fullNameTextField);
 		fullNameTextField.setColumns(10);
 		
+		////Accepts Address
 		addressTextField = new JTextField();
 		addressTextField.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		addressTextField.setColumns(10);
 		addressTextField.setBounds(138, 242, 526, 19);
 		contentPane.add(addressTextField);
 		
+		//Accepts Phone #
 		phoneTextField = new JTextField();
 		phoneTextField.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		phoneTextField.setColumns(10);
 		phoneTextField.setBounds(138, 287, 264, 19);
 		contentPane.add(phoneTextField);
 		
+		//Instructions
 		JLabel intro = new JLabel("PLEASE ENTER YOUR PERSONAL DETAILS IN BOX BELOW.");
 		intro.setFont(new Font("Tahoma", Font.BOLD, 14));
 		intro.setBounds(138, 94, 448, 36);
 		contentPane.add(intro);
 		
+		//Accepts and validates User input when clicked
 		JButton btnEnter = new JButton("ENTER");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -152,24 +173,29 @@ public class User extends JFrame {
 		btnEnter.setBounds(225, 335, 221, 42);
 		contentPane.add(btnEnter);
 		
+		//Additional Notice
 		JLabel notice = new JLabel("PLEASE REPLACE ALL SPACE WITH AN UNDERSCORE \"_\".");
 		notice.setBounds(12, 396, 397, 16);
 		contentPane.add(notice);
 		
+		//Date: Label
 		JLabel label = new JLabel("DATE");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		label.setBounds(577, 13, 50, 36);
+		label.setBounds(587, 13, 50, 36);
 		contentPane.add(label);
 		
+		//Date: Display Current Date
+		Date currentDate = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		textField = new JTextField();
-		textField.setText("07/26/2019");
+		textField.setText(dateFormat.format(currentDate));
 		textField.setColumns(10);
-		textField.setBounds(572, 50, 86, 22);
+		textField.setBounds(587, 49, 86, 22);
 		contentPane.add(textField);
 	}
 	
 	/**
-	 * Validate username.
+	 * Validate on signIn Username.
 	 * @throws FileNotFoundException 
 	 */
 	
@@ -177,7 +203,7 @@ public class User extends JFrame {
 		
 		String input = JOptionPane.showInputDialog("PLEASE ENTER USERNAME: ");
 
-		File uFile = new File("UserFile.txt");
+		File uFile = new File("userFile.txt");
 		Scanner scan = new Scanner(uFile);
 		
 		boolean found = false;
@@ -213,7 +239,7 @@ public class User extends JFrame {
 	
 	public void saveNewUser() {
 		try {
-			FileWriter fileObj = new FileWriter("UserFile.txt", true);
+			FileWriter fileObj = new FileWriter("userFile.txt", true);
 			
 			fileObj.write(username + " ");
 			fileObj.write(fullName + " ");

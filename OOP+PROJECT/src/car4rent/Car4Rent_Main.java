@@ -1,3 +1,8 @@
+/**
+ * Written By :
+ * Tyrone Wallace - 1706903
+ */
+
 package car4rent;
 
 import java.awt.EventQueue;
@@ -19,6 +24,7 @@ import javax.swing.JSeparator;
 import java.awt.Font;
 import javax.swing.JPanel;
 
+@SuppressWarnings({ "unused" })
 public class Car4Rent_Main {
 
 	private JFrame frame;
@@ -56,6 +62,7 @@ public class Car4Rent_Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		//Welcome Greetings
 		JLabel lblWelcomeToCarrent = new JLabel("WELCOME TO CAR-4-RENT");
 		lblWelcomeToCarrent.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblWelcomeToCarrent.setBackground(Color.YELLOW);
@@ -63,6 +70,7 @@ public class Car4Rent_Main {
 		lblWelcomeToCarrent.setBounds(25, 11, 599, 64);
 		frame.getContentPane().add(lblWelcomeToCarrent);
 		
+		//Calls signIn Functions 
 		JButton btnSignIn = new JButton("SIGN IN");
 		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		btnSignIn.addActionListener(new ActionListener() {
@@ -84,7 +92,7 @@ public class Car4Rent_Main {
 			public void actionPerformed(ActionEvent e) {
 				User.start();
 				frame.dispose();
-								
+				
 			}
 		});
 		btnSignUp.setBounds(318, 128, 316, 328);
@@ -101,19 +109,6 @@ public class Car4Rent_Main {
 		JLabel lblTheBestVehicle = new JLabel("THE BEST VEHICLE RENTAL COMPANY IN KINGSTON JAMACIA");
 		lblTheBestVehicle.setBounds(172, 91, 362, 16);
 		frame.getContentPane().add(lblTheBestVehicle);
-	}
-	
-	/**
-	 * Search function.
-	 */
-	public static int search(int[] arr, int key) {
-		
-		for(int i = 0; i <arr.length; i++) {
-			if(arr[i] == key) 
-				return i;
-		}
-		return -1;
-		
-	}
-}
+	}//End of initialize()
+}//End of class
 
