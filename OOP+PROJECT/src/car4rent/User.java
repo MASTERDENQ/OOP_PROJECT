@@ -158,7 +158,7 @@ public class User extends JFrame {
 				phoneNumber = phoneTextField.getText();		
 				
 				if(username.isEmpty() && fullName.isEmpty() && homeAddress.isEmpty() && phoneNumber.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "!!!!SORRY RETRY AGAIN. ALL FIELD MUST BE FILLED OUT PROPERTY!!!!");
+					JOptionPane.showMessageDialog(null, "!!!!SORRY TRY AGAIN. ALL FIELD MUST BE FILLED OUT PROPERTY!!!!");
 					User.start();
 				}	
 				else {	
